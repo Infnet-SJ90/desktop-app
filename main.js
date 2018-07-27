@@ -1,4 +1,4 @@
-const { app, BrowserWindow }  = require('electron')
+const { app, BrowserWindow, ipcMain } = require('electron')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -7,7 +7,7 @@ let mainWindow = null
 function createWindow () 
 {
 	// Create the browser window.
-	mainWindow = new BrowserWindow({width: 800, height: 600})
+	mainWindow = new BrowserWindow({width: 800, height: 600, backgroundColor: '#F9C11C'})
 	
 	// and load the index.html of the app.
 	mainWindow.loadFile('index.html')
@@ -44,3 +44,11 @@ app.on('activate', () => {
 		createWindow()
 	}
 })
+
+ipcMain.on('open-pedidos-agendamentos', () => {
+	mainWindow.loadFile('pedidos-agendamentos.html')
+  })
+
+  ipcMain.on('open-home', () => {
+	mainWindow.loadFile('index.html')
+  })
