@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<title>SJ90 Desktop App</title>
+	
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+	<style>
+		html, body
+		{
+			height: 100%;
+		}
+		body
+		{
+			background-color: #F9C11C;
+		}
+		.centered 
+		{
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+		.centered button
+		{
+			display: block;
+			margin: 25px;
+		}
+
+	</style>
+</head>
+<body>
+	<header>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<a class="navbar-brand" href="#">SJ90 Desktop App</a>
+			<ul class="navbar-nav ml-auto">
+				
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Operador X
+					</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="#">Action</a>
+						<a class="dropdown-item" href="#">Another action</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Something else here</a>
+					</div>
+				</li>
+			</ul>
+			
+		</nav>
+	</header>
+	<main>
+		<div class="centered ">
+			<button type="button" class="btn btn-dark btn-lg btn-block" id="btn-pedidos-agendamentos">Pedidos de Agendamentos</button>
+			<button type="button" class="btn btn-dark btn-lg btn-block" disabled>Agendamentos</button>
+			<button type="button" class="btn btn-dark btn-lg btn-block" disabled>Recursos</button>
+		</div>
+	</main>
+
+	<script>
+		require('./indexRenderer.js');
+	</script>
+</body>
+</html>
