@@ -19,7 +19,7 @@ export class PedidoDeAgendamentoRepository
 		_pedidoDeAgendamento.pedidoDeAgendamentoId = 2;
 		_pedidoDeAgendamento.nomeDoCidadao = "Jacob";
 		_pedidoDeAgendamento.quantidadeDeEntulho = 7;
-		_pedidoDeAgendamento.distancia = 4;
+		_pedidoDeAgendamento.distancia = 5;
 		_pedidoDeAgendamento.status = "Valido";
 		_pedidoDeAgendamento.localidade = "Rua São Jose";
 		pedidosDeAgendamentos.push(_pedidoDeAgendamento);
@@ -28,7 +28,7 @@ export class PedidoDeAgendamentoRepository
 		_pedidoDeAgendamento.pedidoDeAgendamentoId = 3;
 		_pedidoDeAgendamento.nomeDoCidadao = "Larry";
 		_pedidoDeAgendamento.quantidadeDeEntulho = 7;
-		_pedidoDeAgendamento.distancia = 4;
+		_pedidoDeAgendamento.distancia = 6;
 		_pedidoDeAgendamento.status = "Valido";
 		_pedidoDeAgendamento.localidade = "Rua São Jose";
 		pedidosDeAgendamentos.push(_pedidoDeAgendamento);
