@@ -16,11 +16,11 @@ export class CarregaTabela
 		for (let index = 0; index < this.PedidosDeAgendamentos.length; index++)
 		{
 			const element = this.PedidosDeAgendamentos[index];
-			this.insereLinhaTabela(element);
+			this.InsereLinhaTabela(element);
 		}
 	}
 
-	private insereLinhaTabela(pedidoDeAgendamento: PedidoDeAgendamento): void
+	private InsereLinhaTabela(pedidoDeAgendamento: PedidoDeAgendamento): void
 	{
 		const newRow = this.TableReference.insertRow();
 
