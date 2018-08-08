@@ -3,9 +3,11 @@ import { PedidoDeAgendamento } from "./PedidoDeAgendamento";
 import { CarregaTabela } from "./CarregaTabela";
 import { PedidoDeAgendamentoRepository } from "./PedidoDeAgendamentoRepository";
 
+
+let pedidosDeAgendamentos: PedidoDeAgendamento[] = new PedidoDeAgendamentoRepository().GetAll();
+
 SetBackButton();
 LoadPedidosDeAgendamentosTable();
-SetTableButtonsEvents();
 
 function SetBackButton()
 {
@@ -24,8 +26,14 @@ function GetTableReference(): HTMLTableSectionElement
 function LoadPedidosDeAgendamentosTable()
 {
 	const tableRef = GetTableReference();
-	const pedidosDeAgendamentos: PedidoDeAgendamento[] = new PedidoDeAgendamentoRepository().GetAll();
+	CleanTable(tableRef);
 	new CarregaTabela(tableRef, pedidosDeAgendamentos).CarregaTabela();
+	SetTableButtonsEvents();
+}
+
+function CleanTable(tableReference: HTMLTableSectionElement)
+{
+	tableReference.innerHTML = "";
 }
 
 function SetTableButtonsEvents()
@@ -52,5 +60,20 @@ function HandleSelectedPedidoDeAgendamento(e: any): void
 
 function OpenEditWindow(pedidoDeAgendamentosId: number)
 {
-	alert(pedidoDeAgendamentosId);
+	// TODO: Form
+
+	ChangePedidoDeAgendamentoStatus(pedidoDeAgendamentosId);
+}
+
+function ChangePedidoDeAgendamentoStatus(pedidoDeAgendamentosId: number): void
+{
+	for (let index = 0; index < pedidosDeAgendamentos.length; index++)
+	{
+		if (pedidosDeAgendamentos[index].pedidoDeAgendamentoId == pedidoDeAgendamentosId)
+		{
+			pedidosDeAgendamentos[index].status = "Agendado";
+			LoadPedidosDeAgendamentosTable();
+			return;
+		}
+	}
 }
