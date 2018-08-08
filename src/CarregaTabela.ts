@@ -49,7 +49,7 @@ export class CarregaTabela
 		newCell.appendChild(newText);
 
 		newCell  = newRow.insertCell(6);
-		newCell.innerHTML = '<td><button class="btn btn-outline-success">Editar</button></td>';
+		newCell.innerHTML = '<td><button class="btn btn-outline-success">Alocar</button></td>';
 	}
 
 }
