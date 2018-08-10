@@ -13,6 +13,9 @@
 		"interface-name": false,
 		"no-consecutive-blank-lines": false,
 		"one-line": false,
-		"ordered-imports": false
+		"ordered-imports": false,
+		"no-trailing-whitespace": false,
+		"max-line-length": false,
+		"prefer-for-of": false
 	}
 }
