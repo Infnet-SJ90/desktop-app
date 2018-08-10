@@ -1,6 +1,6 @@
 export class PedidoDeAgendamento
 {
-	private _pedidoDeAgendamentoId : number;
+	private _pedidoDeAgendamentoId: number;
 	public get pedidoDeAgendamentoId(): number
 	{
 		return this._pedidoDeAgendamentoId;

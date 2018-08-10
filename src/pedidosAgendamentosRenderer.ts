@@ -9,7 +9,7 @@ let pedidosDeAgendamentos: PedidoDeAgendamento[] = new PedidoDeAgendamentoReposi
 SetBackButton();
 LoadTable(new TableHandler());
 
-function SetBackButton()
+function SetBackButton(): void
 {
 	const troca = document.getElementById("btn-home");
 
@@ -31,7 +31,7 @@ function LoadTable(tableHandler: TableHandler): void
 	SetTableButtonsEvents();
 }
 
-function SetTableButtonsEvents()
+function SetTableButtonsEvents(): void
 {
 	const tableRef = GetTableReference();
 
@@ -42,18 +42,18 @@ function SetTableButtonsEvents()
 	}
 }
 
-function HandleSelectedPedidoDeAgendamento(e: any): void
+function HandleSelectedPedidoDeAgendamento(event: any): void
 {
-	e.preventDefault();
+	event.preventDefault();
 
-	const targetElement = e.target.parentElement.parentElement;
+	const targetElement = event.target.parentElement.parentElement;
 	const cellElement = targetElement.getElementsByTagName("td");
 	const pedidoDeAgendamentosId = cellElement[0].innerText;
 
 	OpenEditWindow(pedidoDeAgendamentosId);
 }
 
-function OpenEditWindow(pedidoDeAgendamentosId: number)
+function OpenEditWindow(pedidoDeAgendamentosId: number): void
 {
 	// TODO: Form
 
