@@ -1,13 +1,13 @@
 import { ipcRenderer } from "electron";
 import { PedidoDeAgendamento } from "./PedidoDeAgendamento";
-import { CarregaTabela } from "./CarregaTabela";
+import { TableHandler } from "./TableHandler";
 import { PedidoDeAgendamentoRepository } from "./PedidoDeAgendamentoRepository";
 
 
 let pedidosDeAgendamentos: PedidoDeAgendamento[] = new PedidoDeAgendamentoRepository().GetAll();
 
 SetBackButton();
-LoadPedidosDeAgendamentosTable();
+LoadTable(new TableHandler());
 
 function SetBackButton()
 {
@@ -23,17 +23,12 @@ function GetTableReference(): HTMLTableSectionElement
 	return document.getElementsByTagName("table")[0].getElementsByTagName("tbody")[0];
 }
 
-function LoadPedidosDeAgendamentosTable()
+function LoadTable(tableHandler: TableHandler): void
 {
 	const tableRef = GetTableReference();
-	CleanTable(tableRef);
-	new CarregaTabela(tableRef, pedidosDeAgendamentos).CarregaTabela();
+	tableHandler.CleanTable(tableRef);
+	tableHandler.LoadPedidosDeAgendamentosTable(tableRef, pedidosDeAgendamentos);
 	SetTableButtonsEvents();
-}
-
-function CleanTable(tableReference: HTMLTableSectionElement)
-{
-	tableReference.innerHTML = "";
 }
 
 function SetTableButtonsEvents()
@@ -72,7 +67,7 @@ function ChangePedidoDeAgendamentoStatus(pedidoDeAgendamentosId: number): void
 		if (pedidosDeAgendamentos[index].pedidoDeAgendamentoId == pedidoDeAgendamentosId)
 		{
 			pedidosDeAgendamentos[index].status = "Agendado";
-			LoadPedidosDeAgendamentosTable();
+			LoadTable(new TableHandler());
 			return;
 		}
 	}
