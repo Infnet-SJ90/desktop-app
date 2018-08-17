@@ -1,4 +1,4 @@
-import PedidoDeAgendamento from './pedido-agendamento';
+import PedidoDeAgendamento from './../models/pedido-agendamento';
 
 /* tslint:disable:prefer-for-of */
 

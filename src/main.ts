@@ -51,7 +51,7 @@ app.on('activate', () => {
 });
 
 ipcMain.on('open-pedidos-agendamentos', () => {
-	mainWindow.loadFile('./src/pedidos-agendamentos.html');
+	mainWindow.loadFile('./src/scenes/pedidos-agendamentos/pedidos-agendamentos.html');
 });
 
 ipcMain.on('open-home', () => {

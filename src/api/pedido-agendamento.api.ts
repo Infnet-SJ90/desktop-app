@@ -1,6 +1,6 @@
-import PedidoDeAgendamento from './pedido-agendamento';
+import PedidoDeAgendamento from './../models/pedido-agendamento';
 
-class PedidoDeAgendamentoRepository {
+class PedidoDeAgendamentoApi {
 	getAll(): PedidoDeAgendamento[] {
 		const pedidosDeAgendamentos: PedidoDeAgendamento[] = [];
 
@@ -35,4 +35,4 @@ class PedidoDeAgendamentoRepository {
 	}
 }
 
-export default PedidoDeAgendamentoRepository;
+export default PedidoDeAgendamentoApi;

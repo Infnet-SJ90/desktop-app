@@ -1,11 +1,11 @@
 import { ipcRenderer } from 'electron';
 
-import PedidoDeAgendamentoRepository from './pedido-agendamento.repository';
-import TableHandler from './table-handler';
+import PedidoDeAgendamentoApi from './../../api/pedido-agendamento.api';
+import TableHandler from './../../components/table-handler';
 
 /* tslint:disable:prefer-for-of */
 
-const pedidosDeAgendamentos = new PedidoDeAgendamentoRepository().getAll();
+const pedidosDeAgendamentos = new PedidoDeAgendamentoApi().getAll();
 
 setBackButton();
 loadTable(new TableHandler());

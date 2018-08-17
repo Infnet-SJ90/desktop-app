@@ -1,14 +1,14 @@
-import { assert, expect } from 'chai';
+import { expect } from 'chai';
 import 'mocha';
 
-import PedidoDeAgendamento from './../../src/pedido-agendamento';
-import PedidoDeAgendamentoRepository from './../../src/pedido-agendamento.repository';
+import PedidoDeAgendamentoApi from './../../src/api/pedido-agendamento.api';
+import PedidoDeAgendamento from './../../src/models/pedido-agendamento';
 
-describe('PedidoDeAgendamentoRepository', () => {
+describe('PedidoDeAgendamentoApi', () => {
 
 	it('should return all Pedidos Mock', () => {
-		const expectResult: PedidoDeAgendamento[] = new PedidoDeAgendamentoRepository().getAll();
-		const result: PedidoDeAgendamento[] = new PedidoDeAgendamentoRepository().getAll();
+		const expectResult: PedidoDeAgendamento[] = new PedidoDeAgendamentoApi().getAll();
+		const result: PedidoDeAgendamento[] = new PedidoDeAgendamentoApi().getAll();
 
 		expect(result).eql(expectResult);
 	});
