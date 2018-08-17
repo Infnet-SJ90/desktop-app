@@ -1,7 +1,7 @@
 import { ipcRenderer } from 'electron';
 
-import PedidoDeAgendamentoRepository from './PedidoDeAgendamentoRepository';
-import TableHandler from './TableHandler';
+import PedidoDeAgendamentoRepository from './pedido-agendamento.repository';
+import TableHandler from './table-handler';
 
 /* tslint:disable:prefer-for-of */
 
