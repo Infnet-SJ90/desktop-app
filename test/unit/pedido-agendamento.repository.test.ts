@@ -1,8 +1,8 @@
 import { assert, expect } from 'chai';
 import 'mocha';
 
-import PedidoDeAgendamento from '../src/pedido-agendamento';
-import PedidoDeAgendamentoRepository from '../src/pedido-agendamento.repository';
+import PedidoDeAgendamento from './../../src/pedido-agendamento';
+import PedidoDeAgendamentoRepository from './../../src/pedido-agendamento.repository';
 
 describe('PedidoDeAgendamentoRepository', () => {
 
