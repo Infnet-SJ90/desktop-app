@@ -1,38 +1,38 @@
-import { PedidoDeAgendamento } from "./PedidoDeAgendamento";
+import PedidoDeAgendamento from './PedidoDeAgendamento';
 
-export class PedidoDeAgendamentoRepository
-{
-	public GetAll(): PedidoDeAgendamento[]
-	{
-		let pedidosDeAgendamentos: PedidoDeAgendamento[] = [];
+class PedidoDeAgendamentoRepository {
+	getAll(): PedidoDeAgendamento[] {
+		const pedidosDeAgendamentos: PedidoDeAgendamento[] = [];
 
-		let _pedidoDeAgendamento: PedidoDeAgendamento = new PedidoDeAgendamento();
-		_pedidoDeAgendamento.pedidoDeAgendamentoId = 1;
-		_pedidoDeAgendamento.nomeDoCidadao = "Mark";
-		_pedidoDeAgendamento.quantidadeDeEntulho = 7;
-		_pedidoDeAgendamento.distancia = 4;
-		_pedidoDeAgendamento.status = "Valido";
-		_pedidoDeAgendamento.localidade = "Rua São Jose";
-		pedidosDeAgendamentos.push(_pedidoDeAgendamento);
+		let pedido = new PedidoDeAgendamento();
+		pedido.pedidoDeAgendamentoId = 1;
+		pedido.nomeDoCidadao = 'Mark';
+		pedido.quantidadeDeEntulho = 7;
+		pedido.distancia = 4;
+		pedido.status = 'Valido';
+		pedido.localidade = 'Rua São Jose';
+		pedidosDeAgendamentos.push(pedido);
 
-		_pedidoDeAgendamento = new PedidoDeAgendamento();
-		_pedidoDeAgendamento.pedidoDeAgendamentoId = 2;
-		_pedidoDeAgendamento.nomeDoCidadao = "Jacob";
-		_pedidoDeAgendamento.quantidadeDeEntulho = 7;
-		_pedidoDeAgendamento.distancia = 5;
-		_pedidoDeAgendamento.status = "Valido";
-		_pedidoDeAgendamento.localidade = "Rua São Jose";
-		pedidosDeAgendamentos.push(_pedidoDeAgendamento);
+		pedido = new PedidoDeAgendamento();
+		pedido.pedidoDeAgendamentoId = 2;
+		pedido.nomeDoCidadao = 'Jacob';
+		pedido.quantidadeDeEntulho = 7;
+		pedido.distancia = 5;
+		pedido.status = 'Valido';
+		pedido.localidade = 'Rua São Jose';
+		pedidosDeAgendamentos.push(pedido);
 
-		_pedidoDeAgendamento = new PedidoDeAgendamento();
-		_pedidoDeAgendamento.pedidoDeAgendamentoId = 3;
-		_pedidoDeAgendamento.nomeDoCidadao = "Larry";
-		_pedidoDeAgendamento.quantidadeDeEntulho = 7;
-		_pedidoDeAgendamento.distancia = 6;
-		_pedidoDeAgendamento.status = "Valido";
-		_pedidoDeAgendamento.localidade = "Rua São Jose";
-		pedidosDeAgendamentos.push(_pedidoDeAgendamento);
+		pedido = new PedidoDeAgendamento();
+		pedido.pedidoDeAgendamentoId = 3;
+		pedido.nomeDoCidadao = 'Larry';
+		pedido.quantidadeDeEntulho = 7;
+		pedido.distancia = 6;
+		pedido.status = 'Valido';
+		pedido.localidade = 'Rua São Jose';
+		pedidosDeAgendamentos.push(pedido);
 
 		return pedidosDeAgendamentos;
 	}
 }
+
+export default PedidoDeAgendamentoRepository;
