@@ -1,21 +1,29 @@
 {
-	"defaultSeverity": "warning",
-	"extends": [
-		"tslint:recommended"
-	],
-	"linterOptions": {
-		"exclude": [
-			"node_modules/**"
-		]
-	},
+	"extends": ["tslint:recommended", "tslint-consistent-codestyle", "tslint-config-standard"],
 	"rules": {
-		"indent": [true, "tabs", 4],
-		"interface-name": false,
-		"no-consecutive-blank-lines": false,
-		"one-line": false,
-		"ordered-imports": false,
-		"no-trailing-whitespace": false,
-		"max-line-length": false,
-		"prefer-for-of": false
+        "indent": [true, "tabs"],
+        "ter-indent": [true, "tab"],
+        "semicolon": [true, "always", "ignore-bound-class-methods"],
+        "object-literal-sort-keys": false,
+        "member-access": [true, "no-public"],
+        "file-name-casing": [true, "kebab-case"],
+        "interface-name": [true, "never-prefix"],
+        "space-before-function-paren": [true, {
+            "anonymous": "always",
+            "named": "never",
+            "asyncArrow": "ignore"
+        }],
+        "naming-convention": [
+            true,
+            {"type": "default", "format": "camelCase" },
+            {"type": "variable", "modifiers": ["export", "const"], "format": "UPPER_CASE"},
+            {"type": "parameter", "modifiers": "unused", "leadingUnderscore": "allow"},
+            {"type": "member", "modifiers": "private", "leadingUnderscore": "require"},
+            {"type": "method", "modifiers": ["private"], "leadingUnderscore": "forbid"},
+            {"type": "method", "modifiers": ["static", "private"], "leadingUnderscore": "forbid"},
+            {"type": "property", "modifiers": ["static", "const"], "format": "UPPER_CASE"},
+            {"type": "type", "format": "PascalCase"},
+            {"type": "enumMember", "format": "PascalCase"}
+        ]
 	}
 }
