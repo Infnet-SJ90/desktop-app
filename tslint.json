@@ -19,6 +19,7 @@
             {"type": "variable", "modifiers": ["export", "const"], "format": "UPPER_CASE"},
             {"type": "parameter", "modifiers": "unused", "leadingUnderscore": "allow"},
             {"type": "member", "modifiers": "private", "leadingUnderscore": "require"},
+            {"type": "method", "modifiers": ["private"], "leadingUnderscore": "forbid"},
             {"type": "method", "modifiers": ["static", "private"], "leadingUnderscore": "forbid"},
             {"type": "property", "modifiers": ["static", "const"], "format": "UPPER_CASE"},
             {"type": "type", "format": "PascalCase"},
