@@ -1,7 +1,7 @@
 import homeMainProcess from './home.main';
-import pedidosAgendamentosMainProcess from './pedidos-agendamentos.main';
+import schedulingRequestMainProcess from './scheduling-request.main';
 
 export default [
 	homeMainProcess,
-	pedidosAgendamentosMainProcess
+	schedulingRequestMainProcess
 ];

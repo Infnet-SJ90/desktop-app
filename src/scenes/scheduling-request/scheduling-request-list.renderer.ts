@@ -1,19 +1,19 @@
 import { ipcRenderer } from 'electron';
 
-import PedidoDeAgendamentoApi from './../../api/pedido-agendamento.api';
+import SchedulingRequestApi from './../../api/scheduling-request.api';
 import TableHandler from './../../components/table-handler';
 
 /* tslint:disable:prefer-for-of */
 
-const pedidosDeAgendamentos = new PedidoDeAgendamentoApi().getAll();
+const schedulingRequestList = new SchedulingRequestApi().getAll();
 
 setBackButton();
 loadTable(new TableHandler());
 
 function setBackButton(): void {
-	const troca = document.getElementById('btn-home');
+	const btnHome = document.getElementById('btn-home');
 
-	troca.addEventListener('click', () => {
+	btnHome.addEventListener('click', () => {
 		ipcRenderer.send('open-home');
 	});
 }
@@ -25,7 +25,7 @@ function getTableReference(): HTMLTableSectionElement {
 function loadTable(tableHandler: TableHandler): void {
 	const tableRef = getTableReference();
 	tableHandler.cleanTable(tableRef);
-	tableHandler.loadPedidosDeAgendamentosTable(tableRef, pedidosDeAgendamentos);
+	tableHandler.loadData(tableRef, schedulingRequestList);
 	setTableButtonsEvents();
 }
 
@@ -34,28 +34,28 @@ function setTableButtonsEvents(): void {
 
 	for (let i = 0; i < tableRef.children.length; i++) {
 		const button = tableRef.children[i].getElementsByTagName('button')[0];
-		button.addEventListener('click', handleSelectedPedidoDeAgendamento, false);
+		button.addEventListener('click', handleSelectedSchedulingRequest, false);
 	}
 }
 
-function handleSelectedPedidoDeAgendamento(event: any): void {
+function handleSelectedSchedulingRequest(event: any): void {
 	event.preventDefault();
 
 	const targetElement = event.target.parentElement.parentElement;
 	const cellElement = targetElement.getElementsByTagName('td');
-	const pedidoDeAgendamentosId = cellElement[0].innerText;
+	const schedulingRequestId = cellElement[0].innerText;
 
-	openEditWindow(pedidoDeAgendamentosId);
+	openEditWindow(schedulingRequestId);
 }
 
-function openEditWindow(pedidoDeAgendamentosId: number): void {
-	changePedidoDeAgendamentoStatus(pedidoDeAgendamentosId);
+function openEditWindow(schedulingRequestId: number): void {
+	changeSchedulingRequestStatus(schedulingRequestId);
 }
 
-function changePedidoDeAgendamentoStatus(pedidoDeAgendamentosId: number): void {
-	for (let index = 0; index < pedidosDeAgendamentos.length; index++) {
-		if (pedidosDeAgendamentos[index].pedidoDeAgendamentoId === pedidoDeAgendamentosId) {
-			pedidosDeAgendamentos[index].status = 'Agendado';
+function changeSchedulingRequestStatus(schedulingRequestId: number): void {
+	for (let index = 0; index < schedulingRequestList.length; index++) {
+		if (schedulingRequestList[index].id === schedulingRequestId) {
+			schedulingRequestList[index].status = 'Agendado';
 			loadTable(new TableHandler());
 			return;
 		}
