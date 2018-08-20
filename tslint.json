@@ -8,6 +8,7 @@
         "member-access": [true, "no-public"],
         "file-name-casing": [true, "kebab-case"],
         "interface-name": [true, "never-prefix"],
+        "no-console": false,
         "space-before-function-paren": [true, {
             "anonymous": "always",
             "named": "never",
