@@ -1,7 +1,8 @@
 {
+	"compileOnSave": false,
 	"compilerOptions": {
-		"module": "commonjs",
-		"target": "es5",
+		"target": "es2015",
+		"moduleResolution": "node",
 		"strict": true,
 		"strictNullChecks": false,
 		"noImplicitAny": true,
@@ -13,8 +14,7 @@
         "sourceMap": true,
         "skipLibCheck": true,
         "allowJs": true,
-		"outDir": "dist",
-		"baseUrl": ".",
+		"outDir": "./dist/",
 		"paths": {
 			"*": ["node_modules/*"]
 		}
