@@ -3,7 +3,7 @@ import { app } from 'electron';
 import WindowCreator from './utils/window-creator';
 
 class ElectronInitializer {
-	static initialize = (): void => {
+	static initialize(): void {
 		const shouldQuit = ElectronInitializer.makeSingleInstance();
 		if (shouldQuit) return app.quit();
 		ElectronInitializer.loadEvents();
@@ -16,7 +16,7 @@ class ElectronInitializer {
 	//
 	// Returns true if the current version of the app should quit instead of
 	// launching.
-	static makeSingleInstance = (): boolean => {
+	static makeSingleInstance(): boolean {
 		if (process.mas) return false;
 
 		return app.makeSingleInstance(() => {
@@ -31,7 +31,7 @@ class ElectronInitializer {
 		});
 	}
 
-	static loadEvents = (): void => {
+	static loadEvents(): void {
 		app.on('ready', () => {
 			WindowCreator.create();
 		});
