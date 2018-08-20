@@ -5,10 +5,9 @@
   "description": "",
   "main": "./dist/main.js",
   "scripts": {
-    "build": "tsc",
-    "watch": "tsc -w",
     "lint": "tslint -c tslint.json -p tsconfig.json",
-    "start": "npm run build && electron .",
+    "start": "node config/start.js",
+    "build": "webpack --config=config/webpack.app.config.js --env=development",
     "test": "mocha -r ts-node/register test/unit/*.test.ts",
     "package-win": "npm run build && electron-packager . --out=./build --overwrite --asar --platform=win32 --arch=ia32,x64"
   },
@@ -23,17 +22,44 @@
   },
   "homepage": "https://github.com/Infnet-SJ90/desktop-app",
   "devDependencies": {
+    "@babel/core": "^7.0.0-beta.54",
+    "@babel/preset-env": "^7.0.0-beta.54",
+    "@babel/preset-typescript": "^7.0.0-rc.1",
     "@types/chai": "^4.1.4",
+    "@types/electron": "^1.6.10",
     "@types/mocha": "^5.2.5",
+    "@types/node": "^10.7.1",
+    "babel-loader": "^8.0.0-beta.4",
+    "babel-plugin-transform-object-rest-spread": "^7.0.0-beta.3",
+    "babel-preset-es2015-node": "^6.1.1",
     "chai": "^4.1.2",
-    "electron": "^2.0.5",
+    "clean-webpack-plugin": "^0.1.19",
+    "css-loader": "^1.0.0",
+    "electron": "^2.0.7",
+    "electron-mocha": "^6.0.4",
     "electron-packager": "^12.1.0",
+    "friendly-errors-webpack-plugin": "^1.7.0",
+    "html-webpack-plugin": "^3.2.0",
     "mocha": "^5.2.0",
+    "source-map-support": "^0.5.6",
+    "spectron": "^3.8.0",
+    "standard": "^11.0.1",
+    "standard-loader": "^6.0.1",
+    "style-loader": "^0.21.0",
+    "ts-loader": "^4.4.2",
     "ts-node": "^7.0.0",
+    "tsconfig-paths-webpack-plugin": "^3.2.0",
     "tslint": "^5.11.0",
     "tslint-config-standard": "^7.1.0",
     "tslint-consistent-codestyle": "^1.13.3",
-    "typescript": "^3.0.1"
+    "tslint-loader": "^3.6.0",
+    "typescript": "^3.0.1",
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0",
+    "webpack-merge": "^4.1.3",
+    "webpack-node-externals": "^1.7.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "fs-jetpack": "^2.1.0"
+  }
 }

@@ -1,5 +1,7 @@
 import { BrowserWindow } from 'electron';
+
 import mainProcesses from './../main-process';
+import SchedulingRoute from './routes';
 
 class WindowCreator {
 	static mainWindow: BrowserWindow;
@@ -14,7 +16,7 @@ class WindowCreator {
 
 		WindowCreator.mainWindow = new BrowserWindow(windowOptions);
 
-		WindowCreator.mainWindow.loadFile('./src/index.html');
+		WindowCreator.mainWindow.loadFile(SchedulingRoute.index);
 
 		WindowCreator.loadProcesses();
 
