@@ -1,7 +1,12 @@
 import { ipcRenderer } from 'electron';
 
-const troca = document.getElementById('btn-scheduling-request-list');
+const schedulingRequestScene = document.getElementById('btn-scheduling-request-list');
+const schedulingScene = document.getElementById('btn-scheduling-list');
 
-troca.addEventListener('click', () => {
+schedulingRequestScene.addEventListener('click', () => {
 	ipcRenderer.send('open-scheduling-request-list');
+});
+
+schedulingScene.addEventListener('click', () => {
+	ipcRenderer.send('open-scheduling-list');
 });
