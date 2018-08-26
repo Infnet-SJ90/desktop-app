@@ -1,11 +1,11 @@
 import { ipcRenderer } from 'electron';
 
-import SchedulingRequestApi from './../../api/scheduling-request.api';
+import SchedulingApi from './../../api/scheduling.api';
 import TableHandler from './../../components/table-handler';
 
 /* tslint:disable:prefer-for-of */
 
-const schedulingRequestList = new SchedulingRequestApi().getAll();
+const schedulingList = new SchedulingApi().getAll();
 
 setBackButton();
 loadTable(new TableHandler());
@@ -25,7 +25,7 @@ function getTableReference(): HTMLTableSectionElement {
 function loadTable(tableHandler: TableHandler): void {
 	const tableRef = getTableReference();
 	tableHandler.cleanTable(tableRef);
-	tableHandler.loadData(tableRef, schedulingRequestList);
+	tableHandler.loadSchedulingData(tableRef, schedulingList);
 	setTableButtonsEvents();
 }
 
@@ -34,30 +34,20 @@ function setTableButtonsEvents(): void {
 
 	for (let i = 0; i < tableRef.children.length; i++) {
 		const button = tableRef.children[i].getElementsByTagName('button')[0];
-		button.addEventListener('click', handleSelectedSchedulingRequest, false);
+		button.addEventListener('click', handleSelectedScheduling, false);
 	}
 }
 
-function handleSelectedSchedulingRequest(event: any): void {
+function handleSelectedScheduling(event: any): void {
 	event.preventDefault();
 
 	const targetElement = event.target.parentElement.parentElement;
 	const cellElement = targetElement.getElementsByTagName('td');
-	const schedulingRequestId = cellElement[0].innerText;
+	const schedulingId = cellElement[0].innerText;
 
-	openEditWindow(schedulingRequestId);
+	openEditWindow(schedulingId);
 }
 
-function openEditWindow(schedulingRequestId: number): void {
-	changeSchedulingRequestStatus(schedulingRequestId);
-}
-
-function changeSchedulingRequestStatus(schedulingRequestId: number): void {
-	for (let index = 0; index < schedulingRequestList.length; index++) {
-		if (schedulingRequestList[index].id == schedulingRequestId) {
-			schedulingRequestList[index].status = 'Agendado';
-			loadTable(new TableHandler());
-			return;
-		}
-	}
+function openEditWindow(schedulingId: number): void {
+	alert("Maiores Detalhes Em Breve. ID Escolhido: "+schedulingId);
 }
