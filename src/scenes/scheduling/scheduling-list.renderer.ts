@@ -49,5 +49,5 @@ function handleSelectedScheduling(event: any): void {
 }
 
 function openEditWindow(schedulingId: number): void {
-	alert("Maiores Detalhes Em Breve. ID Escolhido: "+schedulingId);
+	alert('Maiores Detalhes Em Breve. ID Escolhido: ' + schedulingId);
 }

@@ -1,5 +1,5 @@
-import SchedulingRequest from './../models/scheduling-request';
 import Scheduling from './../models/scheduling';
+import SchedulingRequest from './../models/scheduling-request';
 
 /* tslint:disable:prefer-for-of */
 

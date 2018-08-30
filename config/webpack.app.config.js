@@ -11,6 +11,7 @@ module.exports = env => {
     entry: {
       renderer: './src/renderer.ts',
       'scheduling-request-list.renderer': './src/scenes/scheduling-request/scheduling-request-list.renderer.ts',
+      'scheduling-list.renderer': './src/scenes/scheduling/scheduling-list.renderer.ts',
       main: './src/main.ts'
     },
     output: {
@@ -25,7 +26,8 @@ module.exports = env => {
         ENV_CONFIG: JSON.stringify(require(`./env/env_${env}.json`)),
         ROUTE: {
           INDEX: JSON.stringify('./dist/index.html'),
-          SCHEDULING_REQUEST_LIST: JSON.stringify('./dist/scenes/scheduling-request-list.html')
+          SCHEDULING_REQUEST_LIST: JSON.stringify('./dist/scenes/scheduling-request-list.html'),
+          SCHEDULING_LIST: JSON.stringify('./dist/scenes/scheduling-list.html')
         }
       }),
       new HtmlWebpackPlugin({
@@ -37,6 +39,11 @@ module.exports = env => {
         filename: 'scenes/scheduling-request-list.html',
         template: './src/scenes/scheduling-request/scheduling-request-list.html',
         chunks: ['scheduling-request-list.renderer']
+      }),
+      new HtmlWebpackPlugin({
+        filename: 'scenes/scheduling-list.html',
+        template: './src/scenes/scheduling/scheduling-list.html',
+        chunks: ['scheduling-list.renderer']
       })
     ]
   });

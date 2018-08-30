@@ -54,7 +54,7 @@ function openEditWindow(schedulingRequestId: number): void {
 
 function changeSchedulingRequestStatus(schedulingRequestId: number): void {
 	for (let index = 0; index < schedulingRequestList.length; index++) {
-		if (schedulingRequestList[index].id == schedulingRequestId) {
+		if (schedulingRequestList[index].id === schedulingRequestId) {
 			schedulingRequestList[index].status = 'Agendado';
 			loadTable(new TableHandler());
 			return;
