@@ -1,10 +1,12 @@
 import { ipcRenderer } from 'electron';
-import { ENV_CONFIG } from './utils/constants';
 
-const troca = document.getElementById('btn-scheduling-request-list');
+const schedulingRequestScene = document.getElementById('btn-scheduling-request-list');
+const schedulingScene = document.getElementById('btn-scheduling-list');
 
-troca.addEventListener('click', () => {
+schedulingRequestScene.addEventListener('click', () => {
 	ipcRenderer.send('open-scheduling-request-list');
 });
 
-console.log(ENV_CONFIG);
+schedulingScene.addEventListener('click', () => {
+	ipcRenderer.send('open-scheduling-list');
+});

@@ -5,6 +5,8 @@
 	<title>SJ90 Desktop App</title>
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 	<style>
 		html, body
 		{
@@ -14,17 +16,23 @@
 		{
 			background-color: #F9C11C;
 		}
-		.centered
+		.text-center
 		{
-			position: fixed;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
+			margin: 50px auto;
 		}
-		.centered button
+		.btn-voltar
 		{
-			display: block;
-			margin: 25px;
+			margin-right: 15px;
+		}
+		.btn-voltar i
+		{
+			/* font-size: 36px; */
+			vertical-align: middle;
+		}
+		.btn-voltar span
+		{
+			/* font-size: 18px; */
+			vertical-align: middle;
 		}
 
 	</style>
@@ -32,6 +40,7 @@
 <body>
 	<header>
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<button class="btn btn-outline-light btn-voltar" id="btn-home"><i class="material-icons">keyboard_arrow_left</i> <span>Voltar</span></button>
 			<a class="navbar-brand" href="#">SJ90 Desktop App</a>
 			<ul class="navbar-nav ml-auto">
 
@@ -47,14 +56,30 @@
 					</div>
 				</li>
 			</ul>
+
 		</nav>
 	</header>
 	<main>
-		<div class="centered ">
-			<button type="button" class="btn btn-dark btn-lg btn-block" id="btn-scheduling-request-list">Pedidos de Agendamentos</button>
-			<button type="button" class="btn btn-dark btn-lg btn-block" id="btn-scheduling-list">Agendamentos</button>
-			<button type="button" class="btn btn-dark btn-lg btn-block" disabled>Recursos</button>
-		</div>
+		<h2 class="text-center">Agendamentos</h2>
+		<table class="table table-dark table-striped">
+			<thead>
+				<tr>
+					<th scope="col">ID</th>
+					<th scope="col">Operador ID</th>
+					<th scope="col">Pedido de Agendamento ID</th>
+					<th scope="col">Status</th>
+					<th scope="col">Lista de Alocação</th>
+					<th scope="col">Ação</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+
 	</main>
+
+	<script>
+		require('../../../dist/scenes/scheduling/scheduling-list.renderer.js');
+	</script>
 </body>
 </html>
