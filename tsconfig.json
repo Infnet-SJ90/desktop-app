@@ -15,14 +15,8 @@
         "skipLibCheck": true,
         "allowJs": true,
 		"outDir": "./dist/",
-		"baseUrl": ".",
-		"paths": {
-			"*": ["node_modules/*"]
-		}
+		"baseUrl": "."
 	},
-	"include": [
-		"src/**/*.ts"
-	],
 	"exclude": [
 	  "node_modules"
 	]
