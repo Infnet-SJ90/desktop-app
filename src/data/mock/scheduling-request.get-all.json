@@ -1,0 +1,44 @@
+[
+	{
+		"id": 1,
+		"citizen": {
+			"name": "Mark"
+		},
+		"rubble": {
+			"amount": 7
+		},
+		"distance": 4,
+		"status": 0,
+		"address": {
+			"fullString": "Rua São Jose"
+		}
+	},
+	{
+		"id": 2,
+		"citizen": {
+			"name": "Jacob"
+		},
+		"rubble": {
+			"amount": 7
+		},
+		"distance": 5,
+		"status": 0,
+		"address": {
+			"fullString": "Rua São Jose"
+		}
+	},
+	{
+		"id": 3,
+		"citizen": {
+			"name": "Larry"
+		},
+		"rubble": {
+			"amount": 7
+		},
+		"distance": 6,
+		"status": 0,
+		"address": {
+			"fullString": "Rua São Jose"
+		}
+	}
+]
