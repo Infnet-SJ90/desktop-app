@@ -10,6 +10,7 @@ class SchedulingRequest {
 	rubble: Rubble;
 	address: Address;
 	distance: number;
+	date: Date;
 }
 
 export default SchedulingRequest;

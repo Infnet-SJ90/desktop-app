@@ -52,6 +52,10 @@ class TableHandler {
 		newCell.appendChild(newText);
 
 		newCell = newRow.insertCell(6);
+		newText = document.createTextNode((request.date).toString());
+		newCell.appendChild(newText);
+
+		newCell = newRow.insertCell(7);
 		newCell.innerHTML = `
 			<td>
 				<button class='btn btn-outline-success'>Alocar</button>
