@@ -6,29 +6,29 @@ class SchedulingRequestApi {
 
 		let request = new SchedulingRequest();
 		request.id = 1;
-		request.citizenName = 'Mark';
-		request.rubbleAmount = 7;
+		request.citizen.name = 'Mark';
+		request.rubble.amount = 7;
 		request.distance = 4;
-		request.status = 'Valido';
-		request.place = 'Rua São Jose';
+		request.status = 0;
+		request.address.fullString = 'Rua São Jose';
 		schedulingRequestList.push(request);
 
 		request = new SchedulingRequest();
 		request.id = 2;
-		request.citizenName = 'Jacob';
-		request.rubbleAmount = 7;
+		request.citizen.name = 'Jacob';
+		request.rubble.amount = 7;
 		request.distance = 5;
-		request.status = 'Valido';
-		request.place = 'Rua São Jose';
+		request.status = 0;
+		request.address.fullString = 'Rua São Jose';
 		schedulingRequestList.push(request);
 
 		request = new SchedulingRequest();
 		request.id = 3;
-		request.citizenName = 'Larry';
-		request.rubbleAmount = 7;
+		request.citizen.name = 'Larry';
+		request.rubble.amount = 7;
 		request.distance = 6;
-		request.status = 'Valido';
-		request.place = 'Rua São Jose';
+		request.status = 0;
+		request.address.fullString = 'Rua São Jose';
 		schedulingRequestList.push(request);
 
 		return schedulingRequestList;
