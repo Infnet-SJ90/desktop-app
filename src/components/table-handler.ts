@@ -1,3 +1,5 @@
+import SchedulingRequestStatus from '../models/scheduling-request-status';
+import SchedulingStatus from '../models/scheduling-status';
 import Scheduling from './../models/scheduling';
 import SchedulingRequest from './../models/scheduling-request';
 
@@ -30,19 +32,19 @@ class TableHandler {
 		newCell.appendChild(newText);
 
 		newCell = newRow.insertCell(1);
-		newText = document.createTextNode(request.citizenName);
+		newText = document.createTextNode(request.citizen.name);
 		newCell.appendChild(newText);
 
 		newCell = newRow.insertCell(2);
-		newText = document.createTextNode(request.status);
+		newText = document.createTextNode(SchedulingRequestStatus[request.status]);
 		newCell.appendChild(newText);
 
 		newCell = newRow.insertCell(3);
-		newText = document.createTextNode((request.rubbleAmount).toString() + ' T');
+		newText = document.createTextNode((request.rubble.amount).toString() + ' T');
 		newCell.appendChild(newText);
 
 		newCell = newRow.insertCell(4);
-		newText = document.createTextNode(request.place);
+		newText = document.createTextNode(request.address.fullString);
 		newCell.appendChild(newText);
 
 		newCell = newRow.insertCell(5);
@@ -50,6 +52,10 @@ class TableHandler {
 		newCell.appendChild(newText);
 
 		newCell = newRow.insertCell(6);
+		newText = document.createTextNode((request.date).toString());
+		newCell.appendChild(newText);
+
+		newCell = newRow.insertCell(7);
 		newCell.innerHTML = `
 			<td>
 				<button class='btn btn-outline-success'>Alocar</button>
@@ -73,7 +79,7 @@ class TableHandler {
 		newCell.appendChild(newText);
 
 		newCell = newRow.insertCell(3);
-		newText = document.createTextNode(request.status);
+		newText = document.createTextNode(SchedulingStatus[request.status]);
 		newCell.appendChild(newText);
 
 		newCell = newRow.insertCell(4);
