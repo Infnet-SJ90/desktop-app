@@ -1,6 +1,6 @@
 import { ipcRenderer } from 'electron';
 
-import { ROUTER } from '../../routes';
+import { ROUTER } from '../../router';
 import { Renderer } from '../../utils/renderer';
 
 export class PrivateHomeRenderer implements Renderer {
