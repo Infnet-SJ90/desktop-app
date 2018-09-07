@@ -1,5 +1,4 @@
 import { ipcRenderer } from 'electron';
-
 import SchedulingRequestApi from './../../api/scheduling-request.api';
 import TableHandler from './../../components/table-handler';
 
@@ -54,7 +53,7 @@ function openEditWindow(schedulingRequestId: number): void {
 
 function changeSchedulingRequestStatus(schedulingRequestId: number): void {
 	for (let index = 0; index < schedulingRequestList.length; index++) {
-		if (schedulingRequestList[index].id === schedulingRequestId) {
+		if (schedulingRequestList[index].id == schedulingRequestId) {
 			schedulingRequestList[index].status = 1;
 			loadTable(new TableHandler());
 			return;
