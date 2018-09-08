@@ -16,7 +16,6 @@ export class Schedulinglist implements Renderer {
 		const btnHome = document.getElementById('btn-home');
 
 		btnHome.addEventListener('click', () => {
-			console.log('teste');
 			history.back();
 		});
 	}
