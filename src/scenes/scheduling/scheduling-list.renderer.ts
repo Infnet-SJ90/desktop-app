@@ -5,7 +5,11 @@ import TableHandler from './../../components/table-handler';
 /* tslint:disable:prefer-for-of */
 
 export class Schedulinglist implements Renderer {
-	private _schedulingList = new SchedulingApi().getAll();
+	private _schedulingApi: SchedulingApi;
+
+	constructor(schedulingApi: SchedulingApi) {
+		this._schedulingApi = schedulingApi;
+	}
 
 	init() {
 		this.setBackButton();
@@ -25,9 +29,11 @@ export class Schedulinglist implements Renderer {
 	}
 
 	private loadTable(tableHandler: TableHandler): void {
+		const data = this._schedulingApi.getAll();
 		const tableRef = this.getTableReference();
+
 		tableHandler.cleanTable(tableRef);
-		tableHandler.loadSchedulingData(tableRef, this._schedulingList);
+		tableHandler.loadSchedulingData(tableRef, data);
 		this.setTableButtonsEvents();
 	}
 
