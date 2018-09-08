@@ -1,7 +1,7 @@
 import { BrowserWindow } from 'electron';
 
 import mainProcesses from './../main-process';
-import SchedulingRoute from './routes';
+import { INDEX_FILE } from './constants';
 
 class WindowCreator {
 	static mainWindow: BrowserWindow;
@@ -16,7 +16,7 @@ class WindowCreator {
 
 		WindowCreator.mainWindow = new BrowserWindow(windowOptions);
 
-		WindowCreator.mainWindow.loadFile(SchedulingRoute.index);
+		WindowCreator.mainWindow.loadFile(INDEX_FILE);
 
 		WindowCreator.loadProcesses();
 
