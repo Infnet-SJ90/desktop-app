@@ -1,5 +1,3 @@
-import { ipcRenderer } from 'electron';
-
 import { ROUTER } from '../../router';
 import { Renderer } from '../../utils/renderer';
 
@@ -18,7 +16,7 @@ export class PrivateHomeRenderer implements Renderer {
 
 		if (this._schedulingScene) {
 			this._schedulingScene.addEventListener('click', () => {
-				ipcRenderer.send('open-scheduling-list');
+				ROUTER.navigate('/scheduling-list');
 			});
 		}
 	}

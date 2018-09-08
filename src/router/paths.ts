@@ -1,5 +1,6 @@
 import { PrivateHomeRenderer } from '../scenes/private-home/private-home.renderer';
-import { SchedulingRequestlist } from '../scenes/scheduling/scheduling-list.renderer';
+import { SchedulingRequestList } from '../scenes/scheduling-request/scheduling-request-list.renderer';
+import { Schedulinglist } from '../scenes/scheduling/scheduling-list.renderer';
 
 import { ENV_CONFIG } from '../utils/constants';
 import { Renderer } from '../utils/renderer';
@@ -12,9 +13,17 @@ export const PATHS = {
 	'scheduling-request-list': () => {
 		LOAD_HTML(`${ENV_CONFIG.scenesFolder}/scheduling-request/scheduling-request-list.html`, () => {
 			if (!renderers['scheduling-request-list']) {
-				renderers['scheduling-request-list'] = new SchedulingRequestlist();
+				renderers['scheduling-request-list'] = new SchedulingRequestList();
 			}
 			renderers['scheduling-request-list'].init();
+		});
+	},
+	'scheduling-list': () => {
+		LOAD_HTML(`${ENV_CONFIG.scenesFolder}/scheduling/scheduling-list.html`, () => {
+			if (!renderers['scheduling-list']) {
+				renderers['scheduling-list'] = new Schedulinglist();
+			}
+			renderers['scheduling-list'].init();
 		});
 	},
 	'*': () => {

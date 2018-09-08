@@ -4,7 +4,7 @@ import TableHandler from './../../components/table-handler';
 
 /* tslint:disable:prefer-for-of */
 
-export class SchedulingRequestlist implements Renderer {
+export class Schedulinglist implements Renderer {
 	private _schedulingList = new SchedulingApi().getAll();
 
 	init() {
@@ -16,6 +16,7 @@ export class SchedulingRequestlist implements Renderer {
 		const btnHome = document.getElementById('btn-home');
 
 		btnHome.addEventListener('click', () => {
+			console.log('teste');
 			history.back();
 		});
 	}
