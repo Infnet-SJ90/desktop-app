@@ -1,34 +1,11 @@
 import Scheduling from '../models/scheduling';
 
 class SchedulingApi {
-	getAll(): Scheduling[] {
-		const schedulingList: Scheduling[] = [];
+	private _baseUrl = 'https://leonnardoverol.com.br/infnet/data';
 
-		let request = new Scheduling();
-		request.id = 1;
-		request.operatorId = 1;
-		request.schedulingRequestId = 3;
-		request.alocationList = [null, null];
-		request.status = 0;
-		schedulingList.push(request);
-
-		request = new Scheduling();
-		request.id = 2;
-		request.operatorId = 1;
-		request.schedulingRequestId = 3;
-		request.alocationList = [null, null];
-		request.status = 0;
-		schedulingList.push(request);
-
-		request = new Scheduling();
-		request.id = 3;
-		request.operatorId = 1;
-		request.schedulingRequestId = 3;
-		request.alocationList = [null, null];
-		request.status = 0;
-		schedulingList.push(request);
-
-		return schedulingList;
+	async getAll(): Promise<Scheduling[]> {
+		const resp = await fetch(`${this._baseUrl}/Scheduling.json`);
+		return resp.json();
 	}
 }
 

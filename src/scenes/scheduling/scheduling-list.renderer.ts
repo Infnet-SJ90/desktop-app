@@ -13,7 +13,8 @@ export class Schedulinglist implements Renderer {
 
 	init() {
 		this.setBackButton();
-		this.loadTable(new TableHandler());
+		this.loadTableAsync(new TableHandler())
+			.catch((e) => console.log(e));
 	}
 
 	private setBackButton(): void {
@@ -28,13 +29,17 @@ export class Schedulinglist implements Renderer {
 		return document.getElementsByTagName('table')[0].getElementsByTagName('tbody')[0];
 	}
 
-	private loadTable(tableHandler: TableHandler): void {
-		const data = this._schedulingApi.getAll();
-		const tableRef = this.getTableReference();
+	private async loadTableAsync(tableHandler: TableHandler): Promise<void> {
+		try {
+			const data = await this._schedulingApi.getAll();
+			const tableRef = this.getTableReference();
 
-		tableHandler.cleanTable(tableRef);
-		tableHandler.loadSchedulingData(tableRef, data);
-		this.setTableButtonsEvents();
+			tableHandler.cleanTable(tableRef);
+			tableHandler.loadSchedulingData(tableRef, data);
+			this.setTableButtonsEvents();
+		} catch (e) {
+			console.log(e);
+		}
 	}
 
 	private setTableButtonsEvents(): void {
