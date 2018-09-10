@@ -54,6 +54,7 @@ export class SchedulingRequestList implements Renderer {
 		this.changeSchedulingRequestStatus(schedulingRequestId);
 	}
 
+<<<<<<< HEAD
 	private changeSchedulingRequestStatus(schedulingRequestId: number): void {
 		for (let index = 0; index < this._schedulingRequestList.length; index++) {
 			if (this._schedulingRequestList[index].id == schedulingRequestId) {
@@ -61,6 +62,14 @@ export class SchedulingRequestList implements Renderer {
 				this.loadTable(new TableHandler());
 				return;
 			}
+=======
+function changeSchedulingRequestStatus(schedulingRequestId: number): void {
+	for (let index = 0; index < schedulingRequestList.length; index++) {
+		if (schedulingRequestList[index].id == schedulingRequestId) {
+			schedulingRequestList[index].status = 'Agendado';
+			loadTable(new TableHandler());
+			return;
+>>>>>>> 09d26560187a1740100b9d6692fb4507bb6fb80c
 		}
 	}
 }
