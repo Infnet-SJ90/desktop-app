@@ -1,15 +1,22 @@
 import { Renderer } from '../../utils/renderer';
 import SchedulingRequestApi from './../../api/scheduling-request.api';
 import TableHandler from './../../components/table-handler';
+import SchedulingRequest from './../../models/scheduling-request';
 
 /* tslint:disable:prefer-for-of */
 
 export class SchedulingRequestList implements Renderer {
-	private _schedulingRequestList = new SchedulingRequestApi().getAll();
+	private _schedulingRequestApi: SchedulingRequestApi;
+	private _schedulingRequestList: SchedulingRequest[];
+
+	constructor(schedulingRequestApi: SchedulingRequestApi) {
+		this._schedulingRequestApi = schedulingRequestApi;
+	}
 
 	init() {
 		this.setBackButton();
-		this.loadTable(new TableHandler());
+		this.loadTableAsync(new TableHandler())
+			.catch((e) => console.log(e));
 	}
 
 	private setBackButton(): void {
@@ -24,11 +31,24 @@ export class SchedulingRequestList implements Renderer {
 		return document.getElementsByTagName('table')[0].getElementsByTagName('tbody')[0];
 	}
 
-	private loadTable(tableHandler: TableHandler): void {
+	private refreshTable(tableHandler: TableHandler): void {
 		const tableRef = this.getTableReference();
 		tableHandler.cleanTable(tableRef);
 		tableHandler.loadData(tableRef, this._schedulingRequestList);
 		this.setTableButtonsEvents();
+	}
+
+	private async loadTableAsync(tableHandler: TableHandler): Promise<void> {
+		try {
+			this._schedulingRequestList = await this._schedulingRequestApi.getAll();
+			const tableRef = this.getTableReference();
+
+			tableHandler.cleanTable(tableRef);
+			tableHandler.loadData(tableRef, this._schedulingRequestList);
+			this.setTableButtonsEvents();
+		} catch (e) {
+			console.log(e);
+		}
 	}
 
 	private setTableButtonsEvents(): void {
@@ -54,22 +74,13 @@ export class SchedulingRequestList implements Renderer {
 		this.changeSchedulingRequestStatus(schedulingRequestId);
 	}
 
-<<<<<<< HEAD
 	private changeSchedulingRequestStatus(schedulingRequestId: number): void {
 		for (let index = 0; index < this._schedulingRequestList.length; index++) {
 			if (this._schedulingRequestList[index].id == schedulingRequestId) {
 				this._schedulingRequestList[index].status = 1;
-				this.loadTable(new TableHandler());
+				this.refreshTable(new TableHandler());
 				return;
 			}
-=======
-function changeSchedulingRequestStatus(schedulingRequestId: number): void {
-	for (let index = 0; index < schedulingRequestList.length; index++) {
-		if (schedulingRequestList[index].id == schedulingRequestId) {
-			schedulingRequestList[index].status = 'Agendado';
-			loadTable(new TableHandler());
-			return;
->>>>>>> 09d26560187a1740100b9d6692fb4507bb6fb80c
 		}
 	}
 }
