@@ -83,7 +83,14 @@ class TableHandler {
 		newCell.appendChild(newText);
 
 		newCell = newRow.insertCell(4);
-		newText = document.createTextNode((request.alocationList).toString());
+
+		let alocationListString: string = '[';
+		for (let index = 0; index < request.alocationList.length; index++) {
+			const element = request.alocationList[index];
+			alocationListString += element.alocationId.toString();
+		}
+		alocationListString += ']';
+		newText = document.createTextNode(alocationListString);
 		newCell.appendChild(newText);
 
 		newCell = newRow.insertCell(5);

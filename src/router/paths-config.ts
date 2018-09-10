@@ -1,3 +1,4 @@
+import SchedulingRequestApi from '../api/scheduling-request.api';
 import SchedulingApi from '../api/scheduling.api';
 
 import { PrivateHomeRenderer } from '../scenes/private-home/private-home.renderer';
@@ -13,7 +14,7 @@ export const PATHS_CONFIG = [
 		key: 'scheduling-request-list',
 		sceneDir: `${ENV_CONFIG.scenesFolder}/scheduling-request/scheduling-request-list.html`,
 		rendererKey: 'scheduling-request-list',
-		loadRenderer: () => new SchedulingRequestList()
+		loadRenderer: () => new SchedulingRequestList(new SchedulingRequestApi())
 	},
 	{
 		key: 'scheduling-list',
