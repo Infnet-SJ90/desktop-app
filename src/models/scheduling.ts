@@ -1,5 +1,6 @@
 import Alocation from './alocation';
 import SchedulingStatus from './scheduling-status';
+
 class Scheduling {
 	id: number;
 	operatorId: number;
