@@ -2,6 +2,7 @@ import SchedulingRequestApi from '../api/scheduling-request.api';
 import SchedulingApi from '../api/scheduling.api';
 
 import { PrivateHomeRenderer } from '../scenes/private-home/private-home.renderer';
+import { ResourceCreation } from '../scenes/resource/resource-creation.renderer';
 import { SchedulingRequestList } from '../scenes/scheduling-request/scheduling-request-list.renderer';
 import { Schedulinglist } from '../scenes/scheduling/scheduling-list.renderer';
 
@@ -21,6 +22,12 @@ export const PATHS_CONFIG = [
 		sceneDir: `${ENV_CONFIG.scenesFolder}/scheduling/scheduling-list.html`,
 		rendererKey: 'scheduling-list',
 		loadRenderer: () => new Schedulinglist(new SchedulingApi())
+	},
+	{
+		key: 'resource-creation',
+		sceneDir: `${ENV_CONFIG.scenesFolder}/resource/resource-creation.html`,
+		rendererKey: 'resource-creation',
+		loadRenderer: () => new ResourceCreation()
 	},
 	{
 		key: '*',
