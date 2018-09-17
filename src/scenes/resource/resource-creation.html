@@ -56,11 +56,28 @@
 					</div>
 				</li>
 			</ul>
-
 		</nav>
 	</header>
 	<main>
 		<h2 class="text-center">Recursos</h2>
+
+		<form class="container" action="#" id="resource-creation-unit">
+			<div class="form-group">
+				<label for="capacidadeTotal">Capacidade Total</label>
+				<input type="number" class="form-control" id="capacidadeTotal" placeholder="Capacidade Total">
+			</div>
+			<div class="form-group">
+				<label for="serialCode">Serial Code</label>
+				<input type="text" class="form-control" id="serialCode" placeholder="Serial Code">
+			</div>
+			<div class="form-group">
+				<label for="tipoRecurso">Tipo de Recurso</label>
+				<select class="form-control" id="tipoRecurso">
+					<option value = "0">Caminhão</option>
+				</select>
+			</div>
+			<button type="submit" class="btn btn-primary">Salvar</button>
+		</form>
 	</main>
 </body>
 </html>
