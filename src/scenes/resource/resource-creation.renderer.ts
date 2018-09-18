@@ -1,5 +1,7 @@
 import { Renderer } from '../../utils/renderer';
 import Resource from './../../models/resource';
+import ResourceStatus from './../../models/resource-status';
+import ResourceType from './../../models/resource-type';
 
 export class ResourceCreation implements Renderer {
 	private _resourceList: Resource[] = [];
@@ -34,26 +36,26 @@ export class ResourceCreation implements Renderer {
 		const resource = new Resource();
 
 		resource.resourceId = 2;
-		resource.status = 0;
-		resource.totalCapacity = Number(document.getElementById('capacidadeTotal').innerText);
+		resource.status = ResourceStatus.AVAILABLE;
+		resource.totalCapacity = Number((document.getElementById('capacidadeTotal') as HTMLInputElement).value);
 		resource.currentCapacity = resource.totalCapacity;
-		resource.serialCode = document.getElementById('serialCode').innerText;
+		resource.serialCode = (document.getElementById('serialCode') as HTMLInputElement).value;
 
 		const htmlSelect: HTMLSelectElement = (document.getElementById('tipoRecurso')) as HTMLSelectElement;
 		const selectedIndex = htmlSelect.selectedIndex;
-		const optionSelectedValue = htmlSelect.options[selectedIndex].value;
-		resource.type = Number(optionSelectedValue);
+		const optionSelectedValue: ResourceType = Number(htmlSelect.options[selectedIndex].value);
+		resource.type = optionSelectedValue;
 
 		this._resourceList.push(resource);
 
 		this.emptyForm();
-		alert('Recurso Salvo');
 
+		alert('Recurso Salvo');
 		console.log(this._resourceList);
 	}
 
 	private emptyForm() {
-		document.getElementById('capacidadeTotal').innerText = '';
-		document.getElementById('serialCode').innerText = '';
+		(document.getElementById('capacidadeTotal') as HTMLInputElement).value = '';
+		(document.getElementById('serialCode') as HTMLInputElement).value = '';
 	}
 }

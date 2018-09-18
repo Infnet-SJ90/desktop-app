@@ -2,6 +2,7 @@ import { Renderer } from '../../utils/renderer';
 import SchedulingRequestApi from './../../api/scheduling-request.api';
 import TableHandler from './../../components/table-handler';
 import SchedulingRequest from './../../models/scheduling-request';
+import SchedulingRequestStatus	from './../../models/scheduling-request-status';
 
 /* tslint:disable:prefer-for-of */
 
@@ -77,7 +78,7 @@ export class SchedulingRequestList implements Renderer {
 	private changeSchedulingRequestStatus(schedulingRequestId: number): void {
 		for (let index = 0; index < this._schedulingRequestList.length; index++) {
 			if (this._schedulingRequestList[index].id == schedulingRequestId) {
-				this._schedulingRequestList[index].status = 1;
+				this._schedulingRequestList[index].status = SchedulingRequestStatus.SCHEDULED;
 				this.refreshTable(new TableHandler());
 				return;
 			}
