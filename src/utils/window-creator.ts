@@ -10,7 +10,7 @@ class WindowCreator {
 		const windowOptions = {
 			width: 800,
 			height: 600,
-			backgroundColor: '#F9C11C',
+			backgroundColor: '#F1F1F1',
 			show: false
 		};
 
