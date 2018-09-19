@@ -2,7 +2,7 @@ import { Renderer } from '../../utils/renderer';
 import SchedulingRequestApi from './../../api/scheduling-request.api';
 import TableHandler from './../../components/table-handler';
 import SchedulingRequest from './../../models/scheduling-request';
-import SchedulingRequestStatus	from './../../models/scheduling-request-status';
+import SchedulingRequestStatus from './../../models/scheduling-request-status';
 
 /* tslint:disable:prefer-for-of */
 

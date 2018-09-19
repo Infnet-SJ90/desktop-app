@@ -9,7 +9,7 @@
     "start": "node config/start.js",
     "build": "webpack --config=config/webpack.app.config.js --env=development",
     "test": "mocha -r ts-node/register test/unit/*.test.ts",
-    "package-win": "npm run build && electron-packager . --out=./build --overwrite --asar --platform=win32 --arch=ia32,x64"
+    "package-win": "npm run build && electron-packager . --out=./build --overwrite --asar --platform=win32 --arch=ia32,x64 --icon=./assets/icons/windows/icons.ico"
   },
   "repository": {
     "type": "git",

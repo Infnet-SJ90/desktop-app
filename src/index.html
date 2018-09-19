@@ -5,6 +5,8 @@
 	<title>SJ90 Desktop App</title>
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 	<style>
 		html, body
 		{
@@ -12,11 +14,13 @@
 		}
 		body
 		{
-			background-color: #F9C11C;
+			font-family: "Open Sans", sans-serif;
+			background-color: #F1F1F1;
 		}
 		.centered
 		{
-			position: fixed;
+			margin-top: 20px;
+			position: absolute;
 			top: 50%;
 			left: 50%;
 			transform: translate(-50%, -50%);
@@ -26,7 +30,85 @@
 			display: block;
 			margin: 25px;
 		}
-
+		.text-center
+		{
+			color: #201350;
+			font-weight: 700;
+			margin: 50px auto;
+		}
+		.navbar-brand img
+		{
+			height: 30px;
+		}
+		.btn-voltar
+		{
+			margin-right: 15px;
+			background-color: transparent;
+			color: #8579B6;
+			border: 1px solid #8579B6;
+			border-radius: 0;
+		}
+		.btn-voltar i
+		{
+			vertical-align: middle;
+		}
+		.btn-voltar span
+		{
+			vertical-align: middle;
+		}
+		.btn-voltar:hover, .btn-voltar:focus
+		{
+			background-color: #8579B6;
+			color: white;
+		}
+		.btn-outline-info
+		{
+			color: #00befe;
+    			border-color: #00befe;
+			padding: 6px 12px;
+			border-radius: 0;
+		}
+		.btn-outline-info:hover, .btn-outline-info:focus
+		{
+    			border-color: #00befe;
+    			background-color: #00befe;
+		}
+		.btn-success
+		{
+			background-color: #a2c515;
+    			border-color: #a2c515;
+			border-radius: 0;
+		}
+		.btn-lg
+		{
+			padding: 40px 20px;
+		}
+		.btn-success:hover, .btn-success:focus
+		{
+			background-color: #89a712;
+    			border-color: #89a712;
+		}
+		.form-control
+		{
+			border-radius: 0;
+		}
+		.table-sj90 thead > tr > th, .table-sj90 tbody > tr > td
+		{
+			vertical-align: middle;
+			text-align: center;
+		}
+		.table-sj90 thead
+		{
+			background-color: #8579B6;
+		}
+		.table-sj90, .table-sj90 tr
+		{
+			border-bottom: 2px solid #8579B6;
+		}
+		.btn-outline-success
+		{
+			border-radius: 0;
+		}
 	</style>
 </head>
 <body>

@@ -1,5 +1,4 @@
 import { BrowserWindow } from 'electron';
-
 import mainProcesses from './../main-process';
 import { INDEX_FILE } from './constants';
 
@@ -8,13 +7,18 @@ class WindowCreator {
 
 	static create = (): void => {
 		const windowOptions = {
-			width: 800,
-			height: 600,
-			backgroundColor: '#F9C11C',
-			show: false
+			minWidth: 1024,
+			minHeight: 640,
+			width: 1024,
+			height: 640,
+			backgroundColor: '#F1F1F1',
+			show: false,
+			icon: __dirname + 'assets/icons/windows/icons.ico'
 		};
 
 		WindowCreator.mainWindow = new BrowserWindow(windowOptions);
+
+		WindowCreator.mainWindow.setMenu(null);
 
 		WindowCreator.mainWindow.loadFile(INDEX_FILE);
 
