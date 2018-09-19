@@ -1,5 +1,4 @@
 import { BrowserWindow } from 'electron';
-
 import mainProcesses from './../main-process';
 import { INDEX_FILE } from './constants';
 
@@ -13,7 +12,8 @@ class WindowCreator {
 			width: 1024,
 			height: 640,
 			backgroundColor: '#F1F1F1',
-			show: false
+			show: false,
+			icon: __dirname + 'assets/icons/windows/icons.ico'
 		};
 
 		WindowCreator.mainWindow = new BrowserWindow(windowOptions);
