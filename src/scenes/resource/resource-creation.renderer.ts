@@ -1,3 +1,4 @@
+import { ROUTER } from '../../router';
 import { Renderer } from '../../utils/renderer';
 import Resource from './../../models/resource';
 import ResourceStatus from './../../models/resource-status';
@@ -12,6 +13,7 @@ export class ResourceCreation implements Renderer {
 
 	init() {
 		this.setBackButton();
+		this.setLogoutButton();
 		this.setSubmitForm();
 	}
 
@@ -20,6 +22,14 @@ export class ResourceCreation implements Renderer {
 
 		btnHome.addEventListener('click', () => {
 			history.back();
+		});
+	}
+
+	private setLogoutButton(): void {
+		const btnHome = document.getElementById('btn-login');
+
+		btnHome.addEventListener('click', () => {
+			ROUTER.navigate('/login');
 		});
 	}
 
