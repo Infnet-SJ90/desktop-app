@@ -18,6 +18,8 @@ class WindowCreator {
 
 		WindowCreator.mainWindow = new BrowserWindow(windowOptions);
 
+		WindowCreator.mainWindow.setMenu(null);
+
 		WindowCreator.mainWindow.loadFile(INDEX_FILE);
 
 		WindowCreator.loadProcesses();
