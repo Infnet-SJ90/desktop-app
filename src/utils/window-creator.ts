@@ -8,8 +8,10 @@ class WindowCreator {
 
 	static create = (): void => {
 		const windowOptions = {
-			width: 800,
-			height: 600,
+			minWidth: 1024,
+			minHeight: 640,
+			width: 1024,
+			height: 640,
 			backgroundColor: '#F1F1F1',
 			show: false
 		};
