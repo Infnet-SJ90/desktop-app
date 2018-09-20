@@ -28,5 +28,15 @@ export class PrivateHomeRenderer implements Renderer {
 				ROUTER.navigate('/resource-creation');
 			});
 		}
+
+		this.setLogoutButton();
+	}
+
+	private setLogoutButton(): void {
+		const btnHome = document.getElementById('btn-login');
+
+		btnHome.addEventListener('click', () => {
+			ROUTER.navigate('/login');
+		});
 	}
 }

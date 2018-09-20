@@ -1,3 +1,4 @@
+import { ROUTER } from '../../router';
 import { Renderer } from '../../utils/renderer';
 import SchedulingRequestApi from './../../api/scheduling-request.api';
 import TableHandler from './../../components/table-handler';
@@ -16,6 +17,7 @@ export class SchedulingRequestList implements Renderer {
 
 	init() {
 		this.setBackButton();
+		this.setLogoutButton();
 		this.loadTableAsync(new TableHandler())
 			.catch((e) => console.log(e));
 	}
@@ -25,6 +27,14 @@ export class SchedulingRequestList implements Renderer {
 
 		btnHome.addEventListener('click', () => {
 			history.back();
+		});
+	}
+
+	private setLogoutButton(): void {
+		const btnHome = document.getElementById('btn-login');
+
+		btnHome.addEventListener('click', () => {
+			ROUTER.navigate('/login');
 		});
 	}
 
